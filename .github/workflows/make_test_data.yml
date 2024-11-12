@@ -34,8 +34,9 @@ jobs:
           pip install astar-utils numpy more-itertools astropy PyYAML scopesim_templates
       - name: Run recipes
         run: |
-          python ESO/downloadPackages.py
-          python ESO/run_recipes.py --small --doCalib=1 --sequence=1 --doStatic --small --outputDir metis_sim_small_1/data
+          git clone https://github.com/AstarVienna/METIS_Simulations.git
+          python METIS_Simulations/ESO/downloadPackages.py
+          python METIS_Simulations/ESO/run_recipes.py --small --doCalib=1 --sequence=1 --doStatic --small --outputDir metis_sim_small_1/data
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
